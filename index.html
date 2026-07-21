@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRIDE CO. — Footwear Supply</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark">👟</span>
+        <div class="brand-text">
+          <span class="brand-name">STRIDE CO.</span>
+          <span class="brand-sub">FOOTWEAR SUPPLY — EST. NO.204</span>
+        </div>
+      </div>
+      <nav class="header-nav" id="category-nav" aria-label="Shop by category">
+        <button class="nav-tab active" data-category="all">All</button>
+        <button class="nav-tab" data-category="Running">Running</button>
+        <button class="nav-tab" data-category="Casual">Casual</button>
+        <button class="nav-tab" data-category="Basketball">Basketball</button>
+        <button class="nav-tab" data-category="Hiking">Hiking</button>
+        <button class="nav-tab" data-category="Skate">Skate</button>
+        <button class="nav-tab nav-tab-fav" data-category="favorites">♡ Favorites<span id="wish-nav-count"></span></button>
+      </nav>
+      <button class="cart-tag-btn" id="cart-toggle" aria-label="Open cart" aria-haspopup="dialog">
+        <span class="cart-tag-icon">🏷</span>
+        <span class="cart-tag-label">BAG</span>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">— SPRING RESTOCK, TICKET NO.0417 —</p>
+      <h1 class="hero-stamp" id="hero-stamp">TREAD<br>WITH<br>PURPOSE</h1>
+      <p class="hero-copy">Every pair leaves the stockroom hand-checked and hang-tagged. Pick a lane below, or browse the whole rack.</p>
+      <a href="#catalog" class="stamp-btn">SHOP THE RACK ↓</a>
+    </div>
+    <div class="hero-corner-tag">
+      <span>QTY</span>
+      <strong id="hero-qty-total">08</strong>
+      <span>STYLES IN STOCK</span>
+    </div>
+  </section>
+
+  <!-- ============ CATALOG ============ -->
+  <main id="catalog" class="catalog">
+    <div class="catalog-heading">
+      <h2>THE RACK</h2>
+      <div class="catalog-controls">
+        <select id="sort-select" class="sort-select" aria-label="Sort products">
+          <option value="featured">FEATURED</option>
+          <option value="price-asc">PRICE: LOW TO HIGH</option>
+          <option value="price-desc">PRICE: HIGH TO LOW</option>
+          <option value="name-asc">NAME: A–Z</option>
+        </select>
+        <input type="text" id="search-input" class="search-input" placeholder="SEARCH STYLE NO. OR NAME…" aria-label="Search shoes">
+      </div>
+    </div>
+    <div class="product-grid" id="product-grid"></div>
+    <p class="empty-state" id="empty-state" hidden>Nothing on this shelf yet — try another lane.</p>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-barcode" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p class="footer-text">STRIDE CO. FOOTWEAR SUPPLY · PACKED WITH CARE · NO RETURNS ON WORN SOLES</p>
+    </div>
+  </footer>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title">
+    <div class="drawer-header">
+      <h2 id="cart-drawer-title">PACKING SLIP</h2>
+      <button class="drawer-close" id="drawer-close" aria-label="Close cart">✕</button>
+    </div>
+    <div class="drawer-tear"></div>
+    <div class="drawer-body" id="drawer-body">
+      <!-- cart items injected here -->
+    </div>
+    <div class="drawer-footer">
+      <div class="shipping-progress">
+        <div class="shipping-bar-track"><div class="shipping-bar-fill" id="shipping-bar-fill"></div></div>
+        <p class="shipping-note" id="shipping-note">ADD $75.00 MORE FOR FREE SHIPPING</p>
+      </div>
+
+      <div class="promo-row">
+        <input type="text" id="promo-input" class="promo-input" placeholder="PROMO CODE" aria-label="Promo code">
+        <button class="promo-apply-btn" id="promo-apply">APPLY</button>
+      </div>
+      <p class="promo-message" id="promo-message"></p>
+
+      <div class="drawer-line">
+        <span>SUBTOTAL</span>
+        <span id="drawer-subtotal">$0.00</span>
+      </div>
+      <div class="drawer-line" id="drawer-discount-row" hidden>
+        <span>PROMO DISCOUNT</span>
+        <span id="drawer-discount">−$0.00</span>
+      </div>
+      <div class="drawer-line drawer-line-muted">
+        <span>SHIPPING</span>
+        <span id="drawer-shipping-label">SEE ABOVE</span>
+      </div>
+      <div class="drawer-line drawer-total">
+        <span>TOTAL DUE</span>
+        <span id="drawer-total">$0.00</span>
+      </div>
+      <button class="stamp-btn stamp-btn-block" id="checkout-btn">STAMP &amp; CHECKOUT</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
